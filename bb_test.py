@@ -7,7 +7,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 # Filters filtert den Text
 
 # liest die Bot-ID aus, über die der Bot gesteuert werden kann.
-bot_auth_id = open("bb_config.txt").read()
+bot_auth_id = open("../../bb_id/bb_config.txt").read()
 
 # in der Funktion hier werden die Parameter update zum updaten und context
 # zum verwenden von Daten von außerhalb der Funktion übergeben.
