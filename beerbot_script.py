@@ -21,7 +21,7 @@ def nixverstehen(update, context):
 
 # die "Master-Funktion"
 def main():
-    updater = Updater("962316800:AAGf-v6vfhVnNytOfC_7t_KPrGu1T3jA8Wk", use_context=True)
+    updater = Updater(telegram_id, use_context=True)
     # dispatcher versendet infos an server:
     dp = updater.dispatcher
 
