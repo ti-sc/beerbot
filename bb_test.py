@@ -28,32 +28,36 @@ def text_interpreter(update, context):
     user = update.message.from_user
     user_ID = format(user['id'])
     user_FIRSTNAME = format(user['first_name'])
-    t = datetime.now(pytz.utc)
+    berlin = pytz.timezone('Europe/Berlin')
+    berlin_date = datetime.now(berlin).strftime("%d.%m.%y")
+    berlin_time = datetime.now(berlin).strftime("%X")
+    print(berlin_date)
+    print(berlin_time)
     received_message = update.message.text
     if received_message == '0,1l  \n 🍺':
         update.message.reply_text("Das nenne ich mal verantwortungsbewussten Alkoholkonsum")
-        log_entry = str(user_ID) + ";" + str(user_FIRSTNAME) + ";" + str(t) + ";" + "0.1" + ";" + "\n"
+        log_entry = str(user_ID) + ";" + str(user_FIRSTNAME) + ";" + str(berlin_date) + ";" + str(berlin_time) + ";" + "0.1" + ";" + "\n"
         print(log_entry)
         text_file = open("../log.txt", "a")
         n = text_file.write(log_entry)
         text_file.close()
     elif received_message == '0,2l \n 🍺🍺':
         update.message.reply_text("Misch noch Sprite o.Ä. dazu, dann hast du ein volles Glas Radler")
-        log_entry = str(user_ID) + ";" + str(user_FIRSTNAME) + ";" + str(t) + ";" + "0.2" + ";" + "\n"
+        log_entry = str(user_ID) + ";" + str(user_FIRSTNAME) + ";" + str(berlin_date) + ";" + str(berlin_time) + ";" + "0.2" + ";" + "\n"
         print(log_entry)
         text_file = open("../log.txt", "a")
         n = text_file.write(log_entry)
         text_file.close()
     elif received_message == '0,4l \n 🍺🍺 \n 🍺🍺':
         update.message.reply_text("Standard")
-        log_entry = str(user_ID) + ";" + str(user_FIRSTNAME) + ";" + str(t) + ";" + "0.4" + ";" + "\n"
+        log_entry = str(user_ID) + ";" + str(user_FIRSTNAME) + ";" + str(berlin_date) + ";" + str(berlin_time) + ";" + "0.4" + ";" + "\n"
         print(log_entry)
         text_file = open("../log.txt", "a")
         n = text_file.write(log_entry)
         text_file.close()
     elif received_message == '1l \n 🍺🍺🍺🍺🍺 \n🍺🍺🍺🍺🍺':
         update.message.reply_text("Trink nicht zuviel davon")
-        log_entry = str(user_ID) + ";" + str(user_FIRSTNAME) + ";" + str(t) + ";" + "1.0" + ";" + "\n"
+        log_entry = str(user_ID) + ";" + str(user_FIRSTNAME) + ";" + str(berlin_date) + ";" + str(berlin_time) + ";" + "1.0" + ";" + "\n"
         print(log_entry)
         text_file = open("../log.txt", "a")
         n = text_file.write(log_entry)
