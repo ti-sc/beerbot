@@ -5,6 +5,7 @@ import telegram
 from telegram import ReplyKeyboardMarkup
 from datetime import datetime
 import pytz
+import sqlite3
 # updater holt sich die updates vom bot-nutzer
 # commandhandler verarbeitet alles mit slash davor, also alle Befehle
 # Messagehandler verarbeitet alles was kein Befehl ist
@@ -13,11 +14,10 @@ import pytz
 # liest die Bot-ID aus, über die der Bot gesteuert werden kann.
 bot_auth_id = open("../../bb_id/bb_config.txt").read()
 
+# connection mit sqlite datenbank aufbauen:
+conn = sqlite3.connect('bierbot_datenbank.db')
 # in der Funktion hier werden die Parameter update zum updaten und context
 # zum verwenden von Daten von außerhalb der Funktion übergeben.
-def start(update, context):
-    # der folgende Befehl antwortet an den Nutzer:
-    update.message.reply_text("Bitte trag dein Bier ein: ")
 
 # muss noch an custom-keyboards angepasst werden...
 def help(update, context):
@@ -31,8 +31,6 @@ def text_interpreter(update, context):
     berlin = pytz.timezone('Europe/Berlin')
     berlin_date = datetime.now(berlin).strftime("%d.%m.%y")
     berlin_time = datetime.now(berlin).strftime("%X")
-    print(berlin_date)
-    print(berlin_time)
     received_message = update.message.text
     if received_message == '0,1l  \n 🍺':
         update.message.reply_text("Das nenne ich mal verantwortungsbewussten Alkoholkonsum")
@@ -92,8 +90,7 @@ def main():
     # handler teilt den Befehlen / dem Text der bei Telegram eingegeben wird Funktionen zu
     # Beispiel-Handler: in Telegram wird der Befehl /start eingegeben
     # ausgeführt wird dann in diesem Skript die Funktion, die dem Befehl zugeteilt wird
-    # hier als Beispiel wird der Befehl start mit der Funktion start assoziiert.
-    dp.add_handler(CommandHandler("start", start))
+
     # Help-Handler (erklärt wie man sich sein Bier einträgt)
     dp.add_handler(CommandHandler("help", help))
 
