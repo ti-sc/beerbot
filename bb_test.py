@@ -31,8 +31,6 @@ def text_interpreter(update, context):
     berlin = pytz.timezone('Europe/Berlin')
     berlin_date = datetime.now(berlin).strftime("%d.%m.%y")
     berlin_time = datetime.now(berlin).strftime("%X")
-    print(berlin_date)
-    print(berlin_time)
     received_message = update.message.text
     if received_message == '0,1l  \n 🍺':
         update.message.reply_text("Das nenne ich mal verantwortungsbewussten Alkoholkonsum")
