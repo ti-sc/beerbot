@@ -1,10 +1,11 @@
 # testbot mit youtube-video-hilfe
 # 1. Telegram-Bot-Library importieren:
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import telegram
+import pytz
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from telegram import ReplyKeyboardMarkup
 from datetime import datetime
-import pytz
+
 # updater holt sich die updates vom bot-nutzer
 # commandhandler verarbeitet alles mit slash davor, also alle Befehle
 # Messagehandler verarbeitet alles was kein Befehl ist
@@ -37,28 +38,28 @@ def text_interpreter(update, context):
         log_entry = str(user_ID) + ";" + str(user_FIRSTNAME) + ";" + str(berlin_date) + ";" + str(berlin_time) + ";" + "0.1" + ";" + "\n"
         print(log_entry)
         text_file = open("../log.txt", "a")
-        n = text_file.write(log_entry)
+        text_file.write(log_entry)
         text_file.close()
     elif received_message == '0,2l \n 🍺🍺':
         update.message.reply_text("Misch noch Sprite o.Ä. dazu, dann hast du ein volles Glas Radler")
         log_entry = str(user_ID) + ";" + str(user_FIRSTNAME) + ";" + str(berlin_date) + ";" + str(berlin_time) + ";" + "0.2" + ";" + "\n"
         print(log_entry)
         text_file = open("../log.txt", "a")
-        n = text_file.write(log_entry)
+        text_file.write(log_entry)
         text_file.close()
     elif received_message == '0,4l \n 🍺🍺 \n 🍺🍺':
         update.message.reply_text("Standard")
         log_entry = str(user_ID) + ";" + str(user_FIRSTNAME) + ";" + str(berlin_date) + ";" + str(berlin_time) + ";" + "0.4" + ";" + "\n"
         print(log_entry)
         text_file = open("../log.txt", "a")
-        n = text_file.write(log_entry)
+        text_file.write(log_entry)
         text_file.close()
     elif received_message == '1l \n 🍺🍺🍺🍺🍺 \n🍺🍺🍺🍺🍺':
         update.message.reply_text("Trink nicht zuviel davon")
         log_entry = str(user_ID) + ";" + str(user_FIRSTNAME) + ";" + str(berlin_date) + ";" + str(berlin_time) + ";" + "1.0" + ";" + "\n"
         print(log_entry)
         text_file = open("../log.txt", "a")
-        n = text_file.write(log_entry)
+        text_file.write(log_entry)
         text_file.close()
     else:
         update.message.reply_text("Du hast '" + received_message + "' geschrieben. Damit kann ich leider nix anfangen. Gib /help ein und ich sag dir was ich verstehe...")
