@@ -1,9 +1,10 @@
 # This has to be executed only when you set up the beer-bot for the very first time.
-# later it should be stored in a file called something like initial_db_setup.py
-
 import sqlite3
+
+# create database
 conn = sqlite3.connect('../beerbot_database.db')
-#creates a cursor
+
+# create a cursor
 c = conn.cursor()
 
 # create the table journal, where every transaction i stored
