@@ -22,5 +22,4 @@ pip3 install urllib3
 pip3 install pytz
 
 # database:
-install mariadb-server (a fork of mysql) or mysql
-install the python-mysql connector (on a raspberry pi the command is sudo apt-get install python-mysqldb)
+no need to install a database due to usage of sqlite3 (it comes with your pyhton installation)
