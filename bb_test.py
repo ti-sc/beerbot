@@ -38,7 +38,7 @@ def toast():
     #print(zufallszahl+1)
     funny_german_toast = bytes(lines[random.randint(0, num_lines - 1)], "iso-8859-1").decode("unicode_escape") # python3)
     # the print statement prints the toast on the server's command-line. It's can be commented out, later
-    print(funny_german_toast)
+    #print(funny_german_toast)
     # this statement returns the funny german toast to the text interpreter function.
     # the text interpreter function sends it to the telegram-user (the beer drinker)
     return funny_german_toast
