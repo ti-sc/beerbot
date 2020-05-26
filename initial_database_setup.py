@@ -2,7 +2,7 @@
 # later it should be stored in a file called something like initial_db_setup.py
 
 import sqlite3
-conn = sqlite3.connect('beerbot_database.db')
+conn = sqlite3.connect('../beerbot_database.db')
 #creates a cursor
 c = conn.cursor()
 
