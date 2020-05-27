@@ -230,7 +230,7 @@ def text_interpreter(update, context):
         reply_markup = telegram.ReplyKeyboardMarkup(keyboard_keg_entry)
         update.message.reply_text(text="alles korrekt? dann mit dem button eintragen bestätigen?", reply_markup=reply_markup)
     elif received_message == "Fass eintragen":
-        print("Fass könnte jetzt eingetragen werden.")
+        print("Fass könnte jetzt eingetragen werden. ")
     else:
         update.message.reply_text(
             "Du hast '" + received_message + "' geschrieben. Damit kann ich leider nix anfangen. Gib /help ein und ich sag dir was ich verstehe...")
